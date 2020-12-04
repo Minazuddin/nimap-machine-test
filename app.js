@@ -37,9 +37,13 @@ app.use('/allProducts', getAllProductsRouter);
 
 app.get('/', async(req, res) => {
     const categories = await CategoryService.fetchAllCategory();
-    res.render('index.html', {
-        categories
+    res.writeHead({
+        'Content-Type': 'text/html'
     });
+    res.end('<h1>Test</h1>');
+    // res.render('index.html', {
+    //     categories
+    // });
 })
 
 module.exports = app;
