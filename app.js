@@ -32,18 +32,15 @@ const getAllProductsRouter = require('./routes/getAllProducts')
 app.use(cors());
 
 app.use('/category', categoryRouter);
+app.use('/', categoryRouter);
 app.use('/product', productRouter);
 app.use('/allProducts', getAllProductsRouter);
 
-app.use('/', async(req, res) => {
-    // const categories = await CategoryService.fetchAllCategory();
-    res.writeHead({
-        'Content-Type': 'text/html'
-    });
-    res.end('<h1>Test</h1>');
-    // res.render('index.html', {
-    //     categories
-    // });
-})
+// app.get('/', async(req, res) => {
+//     const categories = await CategoryService.fetchAllCategory();
+//     res.render('index.html', {
+//         categories
+//     });
+// })
 
 module.exports = app;
