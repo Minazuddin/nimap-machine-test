@@ -12,12 +12,12 @@ nunjucks.configure(TEMPLATE_PATH, { autoescape: true, express: app });
 
 router.get('/:categoryName/:skip/:page', async(req, res) => {
     const skip = Number(req.params.skip);
+    const categoryName = req.params.categoryName;
     await Product.find({ categoryName: req.params.categoryName })
         .skip(skip)
         .limit(10)
         .exec()
         .then(products => {
-            let categoryName = req.params.categoryName;
             res.render(req.params.page, {
                 products,
                 categoryName

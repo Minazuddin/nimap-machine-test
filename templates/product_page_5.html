@@ -155,7 +155,7 @@
     </a>
   <div id="container">
     <h1>PRODUCT MASTER</h1>
-    <h3 id="heading"></h3>
+    <h3 id="heading">{{categoryName}}</h3>
     <div id="dynamic">
         {%- for items in products|batch(2) %}
       <div class="row">
@@ -242,7 +242,7 @@
         categoryName: categoryName,
         productName: productName
       }
-      fetch('https://minaz.herokuapp.com/product', {
+      fetch('/product', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -266,7 +266,7 @@
             const dataIn = {
               productName: productName
             }
-            fetch(`https://minaz.herokuapp.com/product/${item.id}`, {
+            fetch(`/product/${item.id}`, {
               method: 'PATCH',
               headers: {
                 'Content-Type': 'application/json'
@@ -289,7 +289,7 @@
     //delete a product
     for(let item of del) {
       item.onclick = () => {
-            fetch(`https://minaz.herokuapp.com/product/${item.name}`, {
+            fetch(`/product/${item.name}`, {
               method: 'DELETE'
             })
             .then(res => res.json())
@@ -301,21 +301,17 @@
 
       //go to prev page
       prevButton.onclick = () => {
-            window.location.href = `https://minaz.herokuapp.com/allProducts/${localStorage.getItem('categoryName')}/30/product_page_4.html`;
-      }
-
-      window.onload = () => {
-        document.getElementById('heading').innerHTML = localStorage.getItem('categoryName');
+            window.location.href = `/allProducts/${localStorage.getItem('categoryName')}/30/product_page_4.html`;
       }
 
       // set up home page link
     function homePage() {
-      fetch('https://minaz.herokuapp.com/category', {
+      fetch('/category', {
         method: 'GET'
       })
       .then(res => res.text())
       .then(data => {
-        window.location.href = "https://minaz.herokuapp.com/category";
+        window.location.href = "/category";
       })
     }
     

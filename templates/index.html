@@ -206,7 +206,7 @@
       const dataIn = {
         categoryName: categoryName
       }
-      fetch('https://minaz.herokuapp.com/category', {
+      fetch('/category', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -222,7 +222,7 @@
     //go to products page
       for(let item of clickProd) {
             item.onclick = () => {
-              window.location.href = `https://minaz.herokuapp.com/allProducts/${item.id}/0/product_page_1.html`;
+              window.location.href = `/allProducts/${item.id}/0/product_page_1.html`;
           }
         }
 
@@ -237,7 +237,7 @@
             const dataIn = {
               categoryName: categoryName
             }
-            fetch(`https://minaz.herokuapp.com/category/${item.id}`, {
+            fetch(`/category/${item.id}`, {
               method: 'PATCH',
               headers: {
                 'Content-Type': 'application/json'
@@ -259,7 +259,7 @@
     //delete a category
     for(let item of del) {
       item.onclick = () => {
-            fetch(`https://minaz.herokuapp.com/category/${item.name}`, {
+            fetch(`/category/${item.name}`, {
               method: 'DELETE'
             })
             .then(res => res.json())
