@@ -301,7 +301,8 @@
 
       //go to prev page
       prevButton.onclick = () => {
-            window.location.href = `/allProducts/${localStorage.getItem('categoryName')}/30/product_page_4.html`;
+            const categoryName = document.getElementById('heading').innerHTML;
+            window.location.href = `/allProducts/${categoryName}/30/product_page_4.html`;
       }
 
       // set up home page link

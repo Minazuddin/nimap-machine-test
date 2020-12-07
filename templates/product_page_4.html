@@ -302,12 +302,14 @@
 
       //go to next page
       nextButton.onclick = () => {
-            window.location.href = `/allProducts/${localStorage.getItem('categoryName')}/40/product_page_5.html`;
+            const categoryName = document.getElementById('heading').innerHTML;
+            window.location.href = `/allProducts/${categoryName}/40/product_page_5.html`;
       }
 
       //go to prev page
       prevButton.onclick = () => {
-            window.location.href = `/allProducts/${localStorage.getItem('categoryName')}/20/product_page_3.html`;
+            const categoryName = document.getElementById('heading').innerHTML;
+            window.location.href = `/allProducts/${categoryName}/20/product_page_3.html`;
       }
 
       // set up home page link
