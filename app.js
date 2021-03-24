@@ -14,8 +14,8 @@ nunjucks.configure(TEMPLATE_PATH, { autoescape: true, express: app });
 
 // app.use(bodyParser.urlencoded({extended: true}));
 // app.use(bodyParser.json());
-app.use(bodyParser.json({ limit: 1024*1024*20, type: 'application/json' }))
-app.use(bodyParser.urlencoded({extended: true, limit: 1024*1024*20}))
+app.use(express.json({ limit: 1024*1024*20, type: 'application/json' }))
+app.use(express.urlencoded({extended: true, limit: 1024*1024*20}))
 
 //connecting to mongoDB
 const uri = `mongodb+srv://minhaj:${process.env.DB_PASSWORD}@cluster0.5wrjk.mongodb.net/test?retryWrites=true&w=majority`;
